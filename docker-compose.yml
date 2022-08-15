@@ -14,7 +14,6 @@ services:
   web:
     build: .
     command: python myproject/manage.py runserver 0.0.0.0:8000
-    user: 1000:1000
     volumes:
       - .:/code
     ports:
@@ -26,3 +25,4 @@ services:
       - POSTGRES_HOST=db
     depends_on:
       - db
+      
