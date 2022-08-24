@@ -12,6 +12,8 @@ help:
 	@echo ""
 	@echo "# DJANGO"
 	@echo "req       update requirements following requirements.txt"
+	@echo "csu       create super user"
+	@echo "urls      display api's urls"
 	@echo ""
 	@echo "# REACT"
 	@echo "runjs     start frontend dev server"
@@ -54,3 +56,9 @@ black:
 
 tu:
 	@docker-compose run backend pytest /code/backend
+
+csu:
+	@docker-compose run backend /code/backend/manage.py createsuperuser
+
+restart:
+	@docker-compose restart
