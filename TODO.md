@@ -1,4 +1,5 @@
 - [ ] drop tslint from tsconfig.json
 - [ ] hook black and prettier
-- [ ] setup pytest
-
+- [x] setup pytest
+- [x] manage base dir in settings
+- [ ] manage dotenv for front
