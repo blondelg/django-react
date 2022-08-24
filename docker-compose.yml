@@ -9,9 +9,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=$${POSTGRES_DB}
+      - POSTGRES_USER=$${POSTGRES_USER}
+      - POSTGRES_PASSWORD=$${POSTGRES_PASSWORD}
   backend:
     container_name: backend
     build: .
@@ -22,10 +22,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST=database
+      - POSTGRES_DB=$${POSTGRES_DB}
+      - POSTGRES_USER=$${POSTGRES_USER}
+      - POSTGRES_PASSWORD=$${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=database # Keep db container's name
     depends_on:
       - database
       
