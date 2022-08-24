@@ -1,19 +1,22 @@
 version: "3.9"
    
 services:
-  db:
+  database:
     image: postgres
+    container_name: database
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - database:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-  web:
+  backend:
+    container_name: backend
     build: .
-    command: python myproject/manage.py runserver 0.0.0.0:8000
+    image: backend
+    command: /bin/sh entrypoint.sh
     volumes:
       - .:/code
     ports:
@@ -22,7 +25,9 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST=db
+      - POSTGRES_HOST=database
     depends_on:
-      - db
+      - database
       
+volumes:
+  database:

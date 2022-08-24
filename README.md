@@ -2,6 +2,9 @@
 
 A basic template to start an django-react app.
 
+# Inspired by
+[https://docs.docker.com/samples/django/](https://docs.docker.com/samples/django/)
+
 # Dependencies
 
 * Make
